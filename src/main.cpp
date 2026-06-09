@@ -13,7 +13,8 @@ int main() {
     std::cout << "ID: " << t.id << "\n"; 
     std::cout << "Title: " << t.title << "\n"; 
     std::cout << "Due: " << t.due_date << "\n"; 
-    std::cout << "DOne: " << t.done << "\n";
+    std::cout << "DOne: " << std::boolalpha << t.done << "\n";
+    std::cout << "Priority: " << priorityToString(t.priority) << "\n";
 
     return 0;
 }

@@ -17,4 +17,14 @@ struct Task {
     bool done;
 }; 
 
+inline std::string priorityToString(Priority p) {
+    switch (p) {
+        case Priority::Low: return "Low";
+        case Priority::Medium: return "Medium";
+        case Priority::High: return "High";
+        default: return "Unknown";
+
+    }
+}
+
 #endif
