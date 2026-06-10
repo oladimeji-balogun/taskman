@@ -52,6 +52,25 @@ int main(int argc, char* argv[]) {
         manager.saveTasks();
         std::cout << "task saved successfully.\n";
 
+   } else if (command == "done") {
+        if (argc < 3) {
+            std::cout << "usage: ./taskman done <id>\n";
+            return 1;
+        }
+
+        std::string arg = argv[2];
+        manager.markDone(std::stoi(arg));
+
+   } else if (command == "delete") {
+    if (argc < 3) {
+        std::cout << "usage: ./taskman delete <id>\n";
+        return 1;
+    }
+
+    std::string arg = argv[2];
+    manager.deleteTask(std::stoi(arg));
+    
+
    } else {
         std::cout << "unknown command: " << command << "\n"; 
         return 1; 

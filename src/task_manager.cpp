@@ -104,7 +104,7 @@ void TaskManager::markDone(int id) {
 
     it->done = true;
     saveTasks();
-    std::cout << "task " << id << "marked done successfully.\n";
+    std::cout << "task " << id << " marked done successfully.\n";
 }
 
 void TaskManager::deleteTask(int id) {
