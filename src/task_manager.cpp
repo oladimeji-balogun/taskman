@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 
 const std::string TaskManager::FILE_PATH = "../data/tasks.csv"; 
@@ -88,7 +89,19 @@ void TaskManager::loadTasks() {
         next_id = t.id + 1;
 
     }
-
-
 }
 
+
+void TaskManager::markDone(int id) {
+    auto it = std::find_if(tasks.begin(), tasks.end(), [&id] (Task t) {
+        return t.id == id;
+    });
+
+    if (it == tasks.end()){
+        std::cout << "task " << id << " is not found.\n";
+        return;
+    }
+
+    it->done = true;
+    std::cout << "task " << id << "marked done successfully.\n";
+}

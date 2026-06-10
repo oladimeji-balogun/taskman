@@ -11,6 +11,8 @@ class TaskManager {
         void listTasks() const;
         void saveTasks() const;
         void loadTasks();
+        void markDone(int id);
+        void deleteTask(int id);
 
     private:
         std::vector<Task> tasks;
