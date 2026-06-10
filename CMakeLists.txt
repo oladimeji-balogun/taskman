@@ -9,4 +9,5 @@ include_directories(include)
 
 add_executable(taskman
     src/main.cpp
+    src/task_manager.cpp
 )

@@ -1,20 +1,15 @@
 #include <iostream>
-#include "task.h"
+#include "task_manager.h"
 
 int main() {
-    Task t;
-    t.id = 1;
-    t.title = "Buy groceeries"; 
-    t.due_date = "2026-06-15";
-    t.priority = Priority::High;
-    t.done = false;
+    // 
+    
+    TaskManager manager;
+    manager.addTask("Buy groceries", "2026-06-15", Priority::High);
+    manager.addTask("Read a book", "2026-06-20", Priority::Low);
+    manager.addTask("Fix a bug #433", "2026-06-12", Priority::Medium);
 
-    std::boolalpha;
-    std::cout << "ID: " << t.id << "\n"; 
-    std::cout << "Title: " << t.title << "\n"; 
-    std::cout << "Due: " << t.due_date << "\n"; 
-    std::cout << "DOne: " << std::boolalpha << t.done << "\n";
-    std::cout << "Priority: " << priorityToString(t.priority) << "\n";
+    manager.listTasks();
 
     return 0;
 }
