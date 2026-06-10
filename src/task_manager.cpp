@@ -103,5 +103,21 @@ void TaskManager::markDone(int id) {
     }
 
     it->done = true;
+    saveTasks();
     std::cout << "task " << id << "marked done successfully.\n";
+}
+
+void TaskManager::deleteTask(int id) {
+    auto it = std::find_if(tasks.begin(), tasks.end(), [&id](Task t) {
+        return t.id == id;
+    });
+
+    if (it == tasks.end()) {
+        std::cout << "task " << id << " not found.\n"; 
+        return;
+    }
+
+    tasks.erase(it);
+    saveTasks();
+    std::cout << "task " << id << " deleted successfully.\n";
 }
