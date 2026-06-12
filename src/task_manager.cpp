@@ -29,6 +29,17 @@ void TaskManager::listTasks(const std::string& filter = "", const std::string& s
         return true;
     });
     
+    // sorting operation
+    if (sort_by == "priority") {
+        std::sort(result.begin(), result.end(), [](Task& a, Task& b) {
+            return static_cast<int>(a.priority) > static_cast<int>(b.priority);
+        });
+    } else if (sort_by == "due") {
+        std::sort(result.begin(), result.end(), [](Task& a, Task& b) {
+            return a.due_date < b.due_date;
+        });
+    }
+
     for (const Task& t: tasks) {
         std::cout << "[" << t.id << "] "
             << t.title
