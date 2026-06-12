@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <algorithm>
+// #include <algorithm>
 
 
 const std::string TaskManager::FILE_PATH = "../data/tasks.csv"; 
@@ -44,6 +44,7 @@ void TaskManager::listTasks(const std::string& filter = "", const std::string& s
         std::cout << "no task found!!\n";
         return;
     }
+
     for (const Task& t: result) {
         std::cout << "[" << t.id << "] "
             << t.title

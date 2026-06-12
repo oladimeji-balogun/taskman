@@ -21,7 +21,16 @@ int main(int argc, char* argv[]) {
 
    // process the commands 
    if (command == "list") {
-    manager.listTasks();
+    std::string filter;
+    std::string sort_by;
+
+    for (int i = 2; i < argc; i++) {
+        std::string arg = argv[i];
+        if (arg == "--filter" && i + 1 < argc) filter = argv[++i];
+        if (arg == "--sort" && i + 1 < argc) sort_by = argv[++i];
+    }
+
+    manager.listTasks(filter, sort_by);
    } else if (command == "add") {
         if (argc < 3) {
             // this will force the user to pass in all the required parameters for the add command to work
