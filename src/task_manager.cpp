@@ -40,7 +40,11 @@ void TaskManager::listTasks(const std::string& filter = "", const std::string& s
         });
     }
 
-    for (const Task& t: tasks) {
+    if (result.empty()) {
+        std::cout << "no task found!!\n";
+        return;
+    }
+    for (const Task& t: result) {
         std::cout << "[" << t.id << "] "
             << t.title
             << " | due: " << t.due_date
