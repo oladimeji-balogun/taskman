@@ -18,12 +18,12 @@ void TaskManager::addTask(const std::string& title, const std::string& due_date,
     tasks.push_back(t);
 }
 
-void TaskManager::listTasks(const std::string& filter = "", const std::string& sort_by = "") const {
+void TaskManager::listTasks(const std::string& filter, const std::string& sort_by) const {
 
     std::vector<Task> result;
 
     // filter operation
-    std::copy_if(tasks.begin(), tasks.end(), std::back_inserter(result), [&filter](Task& t) {
+    std::copy_if(tasks.begin(), tasks.end(), std::back_inserter(result), [&filter](const Task& t) {
         if (filter == "done") return t.done;
         if (filter == "pending") return !t.done;
         return true;
