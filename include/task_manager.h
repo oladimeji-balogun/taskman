@@ -3,12 +3,13 @@
 
 #include <vector>
 #include <task.h>
+#include <algorithm>
 
 class TaskManager {
     public:
         void addTask(const std::string& title, const std::string& due_date, Priority priority);
 
-        void listTasks() const;
+        void listTasks(const std::string& filter = "", const std::string& sort_by = "") const;
         void saveTasks() const;
         void loadTasks();
         void markDone(int id);
